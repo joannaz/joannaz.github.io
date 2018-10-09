@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Emoji Waterfall</title>
+<style>
+
+html{
+	background: navy; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(navy, blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(navy, blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(navy, blue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(navy, blue) fixed; /* Standard syntax */
+    overflow: hidden;
+}
+
+.description{
+  color:white;
+  font-family:arial;
+  position:absolute;
+  bottom:0;
+  right:0;
+  font-size: 12px;
+}
+
+#waterfall{
+  animation: 1s invert infinite, 10s fall infinite linear, 1s spin infinite linear;
+  top: -1000px;
+  -webkit-animation: 1s invert infinite, 10s fall infinite linear, 1s spin infinite linear;
+
+}
+
+@keyframes invert{
+  0% {-webkit-filter: invert(0%);}
+  50% {filter: invert(100%);}
+  0% {-webkit-filter: invert(0%);}
+}
+
+@keyframes fall {
+    0%   {top: -10vh;}
+    100% {top: 100vh;}
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg) scale(1,1);}
+  50% {transform:rotate(180deg) scale(1.5,1.5);}
+  100% {transform: rotate(360deg) scale(1,1);}
+}
+
+/* Safari Stuff*/
+@-webkit-keyframes invert{
+  0% {-webkit-filter: invert(0%);}
+  50% {filter: invert(100%);}
+  0% {-webkit-filter: invert(0%);}
+}
+
+@-webkit-keyframes fall {
+    0%   {top: -10vh;}
+    100% {top: 100vh;}
+}
+
+@-webkit-keyframes spin {
+  0% {transform: rotate(0deg) scale(1,1);}
+  50% {transform:rotate(180deg) scale(1.5,1.5);}
+  100% {transform: rotate(360deg) scale(1,1);}
+}
+
+</style>
+</head>
+
+<body>
+  <div id="main"> </div>
+<span class="description">You can enter "?emoji=40" in the URL to change the number of emojis displayed. Defaults to 50.</span>
+
+</body>
+
+
+<footer>
+<script>
+
+var emojiArray=["🤡","🤥","🤤","🤢","🤧","🤴","🤶","🖤","🦍","🦊","🦌","🦏","🦇","🦅","🦆","🦉","🦎","🦈","🦐","🦑","🦋","🥀","🥝","🥑","🥔","🥕","🥒","🥜","🥐","🥖","🥞","🥓","🥙", "🥚","🥘","🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙊","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦅","🦉","🦇","🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌","🐚","🐞","🐜","🕷","🕸","🐢","🐍","🦎","🦂","🦀","🦑","🐙","🦐","🐠","🐟","🐡","🐬","🦈","🐳","🐋","🐊","🐆","🐅","🐃","🐂","🐄","🦌","🐪","🐫","🐘","🦏","🦍","🐎","🐖","🐐","🐏","🐑","🐕","🐩","🐈","🐓","🦃","🕊","🐇","🐁","🐀","🐿","🐾","🐉","🐲","🌵","🎄","🌲","🌳","🌴","🌱","🌿","☘","🍀","🎍","🎋","🍃","🍂","🍁","🍄","🌾","💐","🌷","🌹","🥀","🌻","🌼","🌸","🌺","🌎","🌍","🌏","🌕","🌖","🌗","🌘","🌑","🌒","🌓","🌔","🌚","🌝","🌞","🌛","🌜","🌙","💫","⭐","🌟","✨","⚡","🔥","💥","☄️","☀️","🌤", "⛅","🌊","💧","💦","☔️"];
+
+function emojify(){
+
+  //gets input
+  var url = new URL(window.location.href );
+  var emoji = url.searchParams.get("emoji");
+  var emojiNum = parseInt(emoji);
+
+  if(emoji == null){
+      emoji = 50;
+  }
+
+  if(isNaN(emojiNum)){
+    emoji = 50;
+  }
+
+
+  for(var i = 0; i < emoji; i++){
+  var randomNum = Math.floor((Math.random() * emojiArray.length));
+  var randomHorizonal = Math.floor((Math.random() * 100));
+  var fontSize = Math.floor((Math.random() * 30)+20);
+  var div = document.getElementById('main');
+  var randomDelay = Math.random() * (10);
+
+  div.innerHTML += "<div id=\"waterfall\" style=\"left:" + randomHorizonal + "vw; position:absolute; font-size:" + fontSize + "px; animation-delay:"+  randomDelay + "s;\">" + emojiArray[randomNum] + "</div>";
+  }
+}
+
+window.onload = emojify;
+
+
+</script>
+
+</footer>
+
+</html>

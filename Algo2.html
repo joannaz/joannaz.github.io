@@ -1,0 +1,32 @@
+<!html>
+
+<body>
+
+<h1>CO518 Assessment 2 - Program Representations</h1>
+<br /><br />
+This assessment is a departure from the procedural style we mostly adopted in this module, and goes back to pure Object-Oriented Programming. One of your first tasks will be to understand how the provided code works, and what its purpose is. You should allocate some of your time for that purpose alone.  Notice that this code (will be) comprehensively introduced in the lecture of November 28. The recording of that lecture will then soon be on moodle.
+<br /><br />
+In Computing we sometimes represent programs as data, so that we can manipulate it, compose it in various ways, and eventually hand it over to a compiler to make it produce actual runnable code. This assessment is about learning how to do something like that. This is not specifically about any concrete material we have done so far, but it does involve linked lists, and turning recursive data structures into Strings - something you have seen for trees.
+Project Statement is a collection of classes that represent simple forms of Java statements for programming with integers. An object of class Statement is a thing (Statement is an abstract class) that has some inputs, and one output. Its main workhorse method is produceStatement. This has two parameters: (i) a list of input values in textual form, and (ii) an output variable, also in textual form. For example, a concrete statement we can build in the project is new AddConstant(6). If we invoke the produceStatement method on this object with first parameter List.cons("call(8)",null) and second parameter "z" it would produce the String "z=call(8)+6;\n". So, it creates the assignment that adds 6 to the first input and stores the result in the provided result variable. You can see how this is realised in the provided code. The abstract class Statement gives the option to turn a statement into method, by passing a list of variable names to the object. For example, our add-6 statement would respond to the call printMethod(List.cons("x",null),"rupert") by outputting:
+<br /><br />
+static public int rupert(int x) { <br />
+ return x+6;
+}
+<br /><br />
+The overall task for this assessment is to increase the project's capabilities, and also make the outputs more human-readable.
+<br /><br />
+The first task is to add to the primitive Statement classes of the project, i.e. statements that are not composite statements. The project currently has only the primitive classes AddConstant, Constant, and Project. AddConstant(n) adds n to the first input and ignores the others, Constant(n) ignores all inputs and "returns" n, and Project(n) simply returns the nth-expression of its inputs. You should add to that classes BinOp(op) and RelOp(op). The op parameter to the constructor is in either case just a string, supposedly a binary operator on integers, such as "+" or "/" or even "<<". When we invoke produceStatement(List.cons("4",List.cons("bing",null)),"res") on an object created as new BinOp("/") it should produce the string "res=4/bing;\n".  RelOp("<=") is similar, but with a slight complication: we have no boolean type for our statements, only integers; 'false' should therefore be converted into a 0, 'true' into a 1.
+<br /><br />
+The second task is to add a composite if-then-else statement, i.e. implement the class IfThenElse. An object created as new IfThenElse(cond,thenpart,elsepart) has three sub-statements. All these should be able to read the full expression list passed to the statement. The cond statement should be used to compute the condition of the statement.  As our statements produce int expressions, these need to be converted here to boolean, with the convention that 0 is false, and anything else is true. Note that you may need an auxiliary variable to store its result; auxiliary variables should be created using the freshVar() method of class Variable. If the cond statement is expressionLike() then the auxiliary variable can and should be avoided.
+<br /><br />
+The third task is to build some statement objects to test this, by adding to the test class. In particular, create a Statement object whose printMethod method could print us something close to the following:
+<br /><br />
+static public int method(int x,int y) { <br />
+    if(x==0) return y; <br />
+    else return x*y; <br />
+}
+<br /><br />
+Marks: 6 for BinOp, 4 for RelOp, 6 for IfthenElse, 4 for the Statement in Q3.
+<br /><br />
+Submit a .zip file with the completed project to moodle, by the end of term (December 16).
+</body>
