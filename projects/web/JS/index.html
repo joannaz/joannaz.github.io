@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Simple Word Processor</title>
+<script type="text/javascript">
+/*
+function to make the text in the text area bold
+*/
+function bold(){
+	var target = document.getElementById("textarea");
+	if (target.style.fontWeight != "bold"){
+		target.style.fontWeight = "bold";
+		}
+	else {
+		target.style.fontWeight = "normal";
+		}
+	}
+	
+/*
+function to make the text in the text area bold
+*/	
+function italic(){
+	var target = document.getElementById("textarea");
+	if (target.style.fontStyle != "italic"){
+		target.style.fontStyle = "italic";
+		}
+	else {
+		target.style.fontStyle = "normal";
+		}
+	}
+	
+/*
+function to make the text in the text area bold
+*/
+function underline(){
+	var target = document.getElementById("textarea");
+	if (target.style.textDecoration != "underline"){
+		target.style.textDecoration = "underline";
+		}
+	else {
+		target.style.textDecoration = "none";
+		}
+	}
+	
+/*
+function to make the text in the text area bold
+*/	
+function underline(){
+	var target = document.getElementById("textarea");
+	if (target.style.textDecoration != "underline"){
+		target.style.textDecoration = "underline";
+		}
+	else {
+		target.style.textDecoration = "none";
+		}
+	}
+	
+/*
+function to make the text in the text area bold
+*/	
+function fontColour()
+{
+	var colour  = document.getElementById("colour").value;
+	document.getElementById("textarea").style.color = colour;
+}
+
+/*
+function to make the text in the text area bold
+*/
+function fontStyle()
+{
+	var font  = document.getElementById("fontstyle").value;
+	document.getElementById("textarea").style.fontFamily = font;
+}
+
+/*
+function to make the text in the text area bold
+*/
+function validation(rgbValue)
+{
+	if (rgbValue.value < 0 || rgbValue.value > 255){
+		alert(rgbValue.value + " is not a valid number.");
+		rgbValue.value = "";
+	}
+	else {
+		changeBackgroundColour(r, g, b);
+	}
+}
+
+/*
+function to make the text in the text area bold
+*/
+function changeBackgroundColour(r, g, b)
+{
+	r = document.getElementById("r");
+	g = document.getElementById("g");
+	b = document.getElementById("b");
+	var target = document.getElementById("textarea");
+	var colour = "rgb(" + [r.value,g.value,b.value].join(",") + ")";
+	target.style.background = colour;
+}	
+</script>
+
+</head>
+<body>
+<h1> Simple Text Editor </h1>
+<!--Buttons for bold, italic and underline-->
+<button onclick="bold();">B</button>
+<button onclick="italic();">I</button>
+<button onclick="underline();">U</button>
+
+<!--select menu for changing colour of the font-->
+<select id="colour" onclick="fontColour();">
+  <option value="black" selected="selected">Black</option>
+  <option value="red">Red</option>
+  <option value="blue">Blue</option>
+  <option value="green">Green</option>
+  <option value="yellow">Yellow</option>  
+</select>
+
+<!--select menu for changing the font-->
+<select id="fontstyle" onclick="fontStyle();">
+  <option value="monospace" selected="selected"> Default </option>
+  <option value="Courier New">Courier New</option>
+  <option value="Times New Roman">Times New Roman</option>
+  <option value="Arial" >Arial</option>
+  <option value="Comic Sans MS">Comic Sans MS</option>
+  <option value="Georgia">Georgia</option>
+</select>
+<br/>
+<br/>
+Background Colour: Please input a number from 0-255
+<br/>
+<!--input fields for RGB colours-->
+Red: &nbsp;&nbsp;&nbsp;<input id="r" type="number" onchange="validation(this);"> <br />
+Green: <input id="g" type="number" onchange="validation(this);"> <br />
+Blue: &nbsp;&nbsp;<input id="b" type="number" onchange="validation(this);"> <br />
+<br/>
+<!--Place for the user to add text-->
+<textarea class="textarea" id="textarea"></textarea>
+<br/>
+</body>
+</html>

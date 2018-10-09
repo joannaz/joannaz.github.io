@@ -1,0 +1,128 @@
+			body {
+				font-family: sans-serif;
+				background-color: #d9d9d9;
+			}
+
+			#login {
+				background-color: #3366ff;
+				margin: auto;
+				width: 20%;
+				padding: 10px;
+				color: #ffffff;
+			}
+			#middle {
+				padding: 70px 0;
+    			text-align: center;
+			}
+
+			#middleblock {
+				width: 10%;
+				padding: 70px;
+				color: #000a1a;
+				float: right;
+				background-color: #4d91ff;
+				margin: -60px  0px 0px;
+			}
+			hr {
+				border: none;
+				height: 1px;
+				background-color: #333;
+			}
+			input[type=text]{
+				width: 100%;
+				border: 1px solid #eaeaea;
+				border-radius: 1px;
+				margin-bottom: 10px;	
+				font-size: 12pt;
+			}
+
+			input[type=password]{
+				width: 100%;
+				border: 1px solid #eaeaea;
+				border-radius: 1px;
+				margin-bottom: 10px;
+				font-size: 12pt;
+			}
+			input[type=submit]{
+				float: right;
+				background-color: #001f4d;
+    			border: none;
+    			color: white;
+    			padding: 15px 32px;
+    			text-align: center;
+    			text-decoration: none;
+    			display: inline-block;
+    			font-size: 16px;
+			}
+
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #003d99;
+			}
+
+			li {
+				float: left;
+			}
+
+			li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			/* Change the link color to #001433 on hover */
+			li a:hover {
+				background-color: #001433;
+			}
+
+			.active {
+				background-color: #4CAF50;
+			}
+
+			#userdata {
+				width: 10%;
+				padding: 10px;
+				color: #000a1a;
+				float: right;
+				background-color: #4d91ff;
+				margin: -60px  0px 0px;
+
+			}
+			table {
+				font-size:16px;
+				border-collapse: collapse;
+				border-spacing: 0;
+				width: 100%;
+			}
+
+			td, th {
+				border: 1px solid #ddd;
+				text-align: left;
+				padding: 8px;
+			}
+
+
+			tr:nth-child(even){background-color: #e6e6e6}
+
+			th {
+				padding-top: 11px;
+				padding-bottom: 11px;
+				background-color: #a6a6a6;
+				color: white;
+			}
+
+			h1 {
+				font-family: Tahoma, Geneva, sans-serif;
+				font-size: 300%;
+				letter-spacing: -1px;
+				margin: 15px 0 5px 0;
+				color: #0040ff;
+
+			}
+
+
