@@ -1,0 +1,42 @@
+.chester {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.title {
+    padding-top: 10px;
+}
+
+.description {
+    margin: 15px 0px 20px 0px;
+}
+
+.button {
+    background-color: #0099ff;
+    color: white;
+}
+
+.button:hover {
+    background-color: #004879;
+    color: white;
+    text-decoration: none;
+}
+
+.disabled-button{
+    background-color: grey;
+    color: white;
+    padding: 15px 32px;
+    cursor: default;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.disabled-button:hover {
+    background-color: grey;
+    color: white;
+}
