@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Random Paladins Selector</title>
+<style>
+.title{
+    color:black;
+    font-family: arial;
+    font-size: 10vw;
+    text-align: center;
+}
+</style>
+</head>
+
+<body >
+    <div id="main" class="title "> </div>
+</body>
+      
+<footer>
+    <script>
+        let championArray=[
+            "Ash",
+            "Atlas",
+            "Barik",
+            "Fernando",
+            "Inara",
+            "Khan",
+            "Makoa",
+            "Raum",
+            "Ruckus",
+            "Terminus",
+            "Torvald",
+            "Bomb King",
+            "Cassie",
+            "Dredge",
+            "Drogoz",
+            "Imani",
+            "Kinessa",
+            "Lian",
+            "Sha Lin",
+            "Strix",
+            "Tyra",
+            "Viktor",
+            "Vivian",
+            "Willo",
+            "Furia",
+            "Grohk",
+            "Grover",
+            "Io",
+            "Jenos",
+            "Mal'Damba",
+            "Pip",
+            "Seris",
+            "Ying",
+            "Androxus",
+            "Buck",
+            "Evie",
+            "Koga",
+            "Lex",
+            "Maeve",
+            "Moji",
+            "Skye",
+            "Talus",
+            "Zhin"];
+        
+        /**
+        * Selects a random champion
+        */
+        function selectChamp(){
+          // Select a random champion
+          let randomNum = Math.floor((Math.random() * championArray.length)); 
+          let div = document.getElementById('main');
+
+          // Add to HTML
+          div.innerHTML += championArray[randomNum];
+        }
+        
+        window.onload = selectChamp;
+        
+        
+        </script>
+        
+        </footer>
+        
+        </html>
+    
